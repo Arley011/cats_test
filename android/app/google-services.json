@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "48604101565",
+    "firebase_url": "https://cats-auth.firebaseio.com",
+    "project_id": "cats-auth",
+    "storage_bucket": "cats-auth.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:48604101565:android:3e211a257e4ca4d3d870d4",
+        "android_client_info": {
+          "package_name": "com.arley.new_demo_cats"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "48604101565-91f4eg15pc10mkdlilhns006duu2hlk9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arley.new_demo_cats",
+            "certificate_hash": "a45c8179750f794061527cb6c707ebc02aa3cc59"
+          }
+        },
+        {
+          "client_id": "48604101565-6efe2v313b2arfml5imeqgi4t8gsc276.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEnzaVwWIK6S-u3cACH-12NC_1kzIRDHc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "48604101565-6efe2v313b2arfml5imeqgi4t8gsc276.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
