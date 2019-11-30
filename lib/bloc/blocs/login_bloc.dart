@@ -48,6 +48,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       yield* _mapPasswordChangedToState(event.password);
     } else if (event is LoginWithGooglePressed) {
       yield* _mapLoginWithGooglePressedToState();
+    } else if (event is LoginWithFacebookPressed) {
+      yield* _mapLoginWithFacebookPressedToState();
     } else if (event is LoginWithCredentialsPressed) {
       yield* _mapLoginWithCredentialsPressedToState(
         email: event.email,
@@ -72,6 +74,17 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     try {
       yield LoginState.loading();
       final user = await _userRepository.signInWithGoogle();
+      await _catsRepository.registerUserToFirestore(email: user.email, name: user.displayName, photoUrl: user.photoUrl);
+      yield LoginState.success();
+    } catch (_) {
+      yield LoginState.failure();
+    }
+  }
+
+  Stream<LoginState> _mapLoginWithFacebookPressedToState() async* {
+    try {
+      yield LoginState.loading();
+      final user = await _userRepository.signInWithFacebook();
       await _catsRepository.registerUserToFirestore(email: user.email, name: user.displayName, photoUrl: user.photoUrl);
       yield LoginState.success();
     } catch (_) {

@@ -7,6 +7,7 @@ import '../bloc/login_BLOC.dart';
 import './create_account_button.dart';
 import './google_login_button.dart';
 import './login_button.dart';
+import './facebook_login_button.dart';
 
 class LoginForm extends StatefulWidget {
   final UserRepository _userRepository;
@@ -130,6 +131,7 @@ class _LoginFormState extends State<LoginForm> {
                               : null,
                         ),
                         GoogleLoginButton(),
+                        FacebookLoginButton(),
                         CreateAccountButton(userRepository: _userRepository, catsRepository: _catsRepository,),
                       ],
                     ),
