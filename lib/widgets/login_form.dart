@@ -130,7 +130,7 @@ class _LoginFormState extends State<LoginForm> {
                               ? _onFormSubmitted
                               : null,
                         ),
-                        GoogleLoginButton(),
+                        GoogleLoginButton(loginBloc: _loginBloc,),
                         FacebookLoginButton(loginBloc: _loginBloc,),
                         CreateAccountButton(userRepository: _userRepository, catsRepository: _catsRepository,),
                       ],
