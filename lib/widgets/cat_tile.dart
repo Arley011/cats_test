@@ -15,6 +15,7 @@ class CatsTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //BAD practice, better to wrap to blocbuilder!!!!
     final catBloc = BlocProvider.of<CatsBloc>(context);
     return Padding(
       padding: const EdgeInsets.all(8.0),

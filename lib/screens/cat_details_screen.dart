@@ -9,6 +9,7 @@ class CatDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //this may cause memory leak. better to wrap to bloc builder!
     final catsBloc = BlocProvider.of<CatsBloc>(context);
     final catData = ModalRoute.of(context).settings.arguments as Map;
     final cat = catData['cat'];

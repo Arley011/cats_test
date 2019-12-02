@@ -26,7 +26,7 @@ class LoginScreen extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(title: Text('Login')),
         body: BlocProvider<LoginBloc>(
-          builder: (context) => LoginBloc(userRepository: _userRepository, catsRepository: _catsRepository),
+          create: (context) => LoginBloc(userRepository: _userRepository, catsRepository: _catsRepository),
           child: LoginForm(userRepository: _userRepository, catsRepository: _catsRepository,),
         ),
       ),

@@ -12,6 +12,7 @@ class GoogleLoginButton extends StatelessWidget {
       ),
       icon: Icon(FontAwesomeIcons.google, color: Colors.white),
       onPressed: () {
+        //better to pass the LoginBloc through the constructor!!!
         BlocProvider.of<LoginBloc>(context).add(
           LoginWithGooglePressed(),
         );

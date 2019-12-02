@@ -13,6 +13,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //this may cause memory leak. better to pass by constructor like the catsBloc!!!
     final authBloc = BlocProvider.of<AuthenticationBloc>(context);
     final user = authBloc.user;
     return Center(

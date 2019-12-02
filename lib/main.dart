@@ -24,7 +24,7 @@ void main() {
   final CatsRepository catsRepository = CatsRepository();
   runApp(
     BlocProvider<AuthenticationBloc>(
-      builder: (context) =>
+      create: (context) =>
           AuthenticationBloc(userRepository: userRepository)..add(AppStarted()),
       child: MyApp(
         userRepository: userRepository,
@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
   final UserRepository _userRepository;
   final CatsRepository _catsRepository;
 
+  //why is this a global variable?
   final CatsBloc _catsBloc = CatsBloc(httpClient: http.Client());
 
   MyApp({Key key, userRepository, catsRepository})
@@ -51,10 +52,10 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<CatsBloc>(
-          builder: (_) => _catsBloc,
+          create: (_) => _catsBloc,
         ),
         BlocProvider<TabBloc>(
-          builder: (_) => TabBloc(),
+          create: (_) => TabBloc(),
         )
       ],
       child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
