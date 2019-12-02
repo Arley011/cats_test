@@ -25,7 +25,6 @@ class _RegisterFormState extends State<RegisterForm> {
   @override
   void initState() {
     super.initState();
-    //close _registerBloc on dispose!!!
     _registerBloc = BlocProvider.of<RegisterBloc>(context);
     _emailController.addListener(_onEmailChanged);
     _passwordController.addListener(_onPasswordChanged);
@@ -129,6 +128,7 @@ class _RegisterFormState extends State<RegisterForm> {
     _emailController.dispose();
     _passwordController.dispose();
     _nameController.dispose();
+    _registerBloc.close();
     super.dispose();
   }
 

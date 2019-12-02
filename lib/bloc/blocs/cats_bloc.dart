@@ -5,16 +5,14 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import '../../models/cat.dart';
 
-import '../../cats_repository.dart';
 import '../events/cats_events.dart';
 import '../states/cats_state.dart';
 
 class CatsBloc extends Bloc<CatsEvent, CatsState> {
   final http.Client httpClient;
-  //better to pass the CatsRepository instance in constructor!
-  final _catsRepository = CatsRepository();
+  final catsRepository;
 
-  CatsBloc({@required this.httpClient});
+  CatsBloc({@required this.httpClient, @required this.catsRepository});
 
   @override
   CatsState get initialState => CatsUninitialized();
@@ -63,7 +61,7 @@ class CatsBloc extends Bloc<CatsEvent, CatsState> {
     if (event is ToggleFavorite) {
       try {
         if (currentState is CatsLoaded) {
-          await _catsRepository.toggleFavoriteCat(event.cat, event.email);
+          await catsRepository.toggleFavoriteCat(event.cat, event.email);
           final favs = await _getFavs(event.email);
           yield favs.isEmpty ? CatsLoaded(favs: [], cats: currentState.cats, hasReachedMax: false) : CatsLoaded(favs: favs, hasReachedMax: false, cats: currentState.cats);
         }
@@ -74,7 +72,7 @@ class CatsBloc extends Bloc<CatsEvent, CatsState> {
   }
 
   Future<List<Cat>> _getFavs(String email) async {
-    final docs = (await _catsRepository.myFavorites(email)).documents;
+    final docs = (await catsRepository.myFavorites(email)).documents;
     List<Cat> favs = [];
     if (docs.isNotEmpty) {
       docs.forEach((document) {
@@ -133,15 +131,5 @@ class CatsBloc extends Bloc<CatsEvent, CatsState> {
   bool _hasReachedMax(CatsState state) =>
       state is CatsLoaded && state.hasReachedMax;
 
-  //this override are useless! need to be removed
-  @override
-  void onTransition(Transition<CatsEvent, CatsState> transition) {
-    super.onTransition(transition);
-  }
 
-  //this override are useless! need to be removed
-  @override
-  void onError(Object error, StackTrace stacktrace) {
-    super.onError(error, stacktrace);
-  }
 }

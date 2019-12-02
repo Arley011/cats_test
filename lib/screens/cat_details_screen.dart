@@ -9,13 +9,10 @@ class CatDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //this may cause memory leak. better to wrap to bloc builder!
-    final catsBloc = BlocProvider.of<CatsBloc>(context);
     final catData = ModalRoute.of(context).settings.arguments as Map;
     final cat = catData['cat'];
     final email = catData['email'];
-    return BlocBuilder(
-      bloc: catsBloc,
+    return BlocBuilder<CatsBloc, CatsState>(
       builder: (context, catsState)  {
         if(catsState is CatsLoaded)
         return Scaffold(
@@ -36,7 +33,7 @@ class CatDetailsScreen extends StatelessWidget {
                 ),
               ),
               actions: <Widget>[
-                FavoriteButton(email: email, cat: cat, catsBloc: catsBloc,),
+                FavoriteButton(email: email, cat: cat),
               ],
             ),
             SliverList(

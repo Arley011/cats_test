@@ -43,7 +43,6 @@ class _LoginFormState extends State<LoginForm> {
   @override
   void initState() {
     super.initState();
-    //need to close the _loginBloc in the dispose method!
     _loginBloc = BlocProvider.of<LoginBloc>(context);
     _emailController.addListener(_onEmailChanged);
     _passwordController.addListener(_onPasswordChanged);
@@ -132,7 +131,7 @@ class _LoginFormState extends State<LoginForm> {
                               : null,
                         ),
                         GoogleLoginButton(),
-                        FacebookLoginButton(),
+                        FacebookLoginButton(loginBloc: _loginBloc,),
                         CreateAccountButton(userRepository: _userRepository, catsRepository: _catsRepository,),
                       ],
                     ),
@@ -150,6 +149,7 @@ class _LoginFormState extends State<LoginForm> {
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
+    _loginBloc.close();
     super.dispose();
   }
 

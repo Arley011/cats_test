@@ -6,15 +6,14 @@ import '../bloc/events/cats_events.dart';
 
 class ProfileScreen extends StatelessWidget {
   final CatsBloc catsBloc;
+  final AuthenticationBloc authBloc;
 
-  ProfileScreen({this.catsBloc});
+  ProfileScreen({@required this.catsBloc, @required this.authBloc});
 
   static const routeName = '/profile-screen';
 
   @override
   Widget build(BuildContext context) {
-    //this may cause memory leak. better to pass by constructor like the catsBloc!!!
-    final authBloc = BlocProvider.of<AuthenticationBloc>(context);
     final user = authBloc.user;
     return Center(
         child: Padding(

@@ -4,6 +4,8 @@ import '../bloc/login_BLOC.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class GoogleLoginButton extends StatelessWidget {
+  final LoginBloc loginBloc;
+  GoogleLoginButton({@required this.loginBloc});
   @override
   Widget build(BuildContext context) {
     return RaisedButton.icon(
@@ -12,8 +14,7 @@ class GoogleLoginButton extends StatelessWidget {
       ),
       icon: Icon(FontAwesomeIcons.google, color: Colors.white),
       onPressed: () {
-        //better to pass the LoginBloc through the constructor!!!
-        BlocProvider.of<LoginBloc>(context).add(
+        loginBloc.add(
           LoginWithGooglePressed(),
         );
       },

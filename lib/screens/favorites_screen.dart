@@ -7,16 +7,14 @@ import '../widgets/cat_tile.dart';
 
 class FavoritesScreen extends StatelessWidget {
   static const routeName = '/favorites-screen';
-  final CatsBloc catsBloc;
   final String email;
 
-  FavoritesScreen({Key key, @required this.catsBloc, @required this.email})
+  FavoritesScreen({Key key, @required this.email})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CatsBloc, CatsState>(
-      bloc: catsBloc,
       builder: (context, catState) {
         if (catState is CatsUninitialized) {
           return Center(

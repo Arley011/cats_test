@@ -38,8 +38,7 @@ class MyApp extends StatelessWidget {
   final UserRepository _userRepository;
   final CatsRepository _catsRepository;
 
-  //why is this a global variable?
-  final CatsBloc _catsBloc = CatsBloc(httpClient: http.Client());
+
 
   MyApp({Key key, userRepository, catsRepository})
       : assert(userRepository != null, catsRepository != null),
@@ -52,7 +51,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<CatsBloc>(
-          create: (_) => _catsBloc,
+          create: (_) => CatsBloc(httpClient: http.Client(), catsRepository: _catsRepository),
         ),
         BlocProvider<TabBloc>(
           create: (_) => TabBloc(),

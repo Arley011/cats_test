@@ -12,7 +12,7 @@ class Fetch extends CatsEvent{
 
   @override
   // TODO: implement props
-  List<Object> get props => null;
+  List<Object> get props => [email];
 }
 
 class ClearCats extends CatsEvent{
