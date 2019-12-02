@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "48604101565-9o310r8pfc7aucrspqrdk00l52aa2751.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arley.new_demo_cats",
+            "certificate_hash": "e73e99de106a8067a7c56d13de38f49c3eb4219e"
+          }
+        },
+        {
           "client_id": "48604101565-91f4eg15pc10mkdlilhns006duu2hlk9.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
