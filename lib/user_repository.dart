@@ -29,7 +29,7 @@ class UserRepository {
   }
 
   Future<FirebaseUser> signInWithFacebook() async {
-    final facebookResult = await _facebookLogin.logInWithReadPermissions(
+    final facebookResult = await _facebookLogin.logIn(
         ['email']).catchError((e) => print(e));
     switch (facebookResult.status) {
       case FacebookLoginStatus.loggedIn:

@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "48604101565-mhseviagjlsduf7oedbv9ov9rt18jrc8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arley.new_demo_cats",
+            "certificate_hash": "cb8d3a925bf7c9ec1d2f7db846b73e24238b6fa8"
+          }
+        },
+        {
+          "client_id": "48604101565-ankustpbjhmcgihsg8rarikb30spgef7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.arley.new_demo_cats",
+            "certificate_hash": "ce0d94977964067646ec71878fd33fda7345a594"
+          }
+        },
+        {
           "client_id": "48604101565-9o310r8pfc7aucrspqrdk00l52aa2751.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
